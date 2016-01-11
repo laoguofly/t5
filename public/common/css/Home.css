@@ -1,0 +1,155 @@
+.topbar {
+    height: 55px;
+    background: #22282d;
+}
+.logo{
+    float:left;
+    padding-left:20px
+}
+.topbar .in-right{
+    padding-right:0px;
+}
+.topbar .in-right > ul > li > a{
+    line-height:55px;
+    min-width:140px;
+    font-size:16px;
+    text-align:center;
+    border-left-color:#1a1f23;
+    border-left-right:#1a1f23;
+}
+
+.topbar .in-right > ul > li > a .caret{
+    width:9px;
+}
+.dropdown-menu{
+    min-width:140px;
+}
+
+.header {
+    border-bottom: 0px solid #ddd;
+    height: 54px;
+    background-color:#303b44;
+}
+.next .n1{
+    float:left;
+    width:15%;
+    height:52px;
+    border-right:1px solid #262f36;
+}
+.header .next {
+     margin: auto; 
+     width: 100%; 
+}
+.header .next .nav {
+    padding-left:0px;
+    float:left;
+
+}
+.navbar-nav{
+    margin:0px !important;
+}
+.navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.navbar-nav > li{
+    float:left;
+}
+.header .next .nav >li>.gx{
+    color:#fff ;
+    font-size:18px;
+    width:172px;
+    border-right:1px solid  #262f36;
+    text-align:center;
+}
+.header .next .nav >li>a{
+    color:#fff;
+
+}
+.next .n3{
+    line-height:52px;
+    color:#fff;
+    float:right;
+    padding-right:24px;
+}
+body{
+    background-repeat: repeat-y
+}
+.main .leftNav {
+    width: 15%;
+    border-right: 0px;
+    float: left;
+    background-color:#22282d;
+}
+.leftNav .ntitle{
+    font-size:18px;
+    display:block;
+    line-height:62px;
+    background-color:#1b2024;
+}
+.leftNav .ntitle .n1{
+    font-size:14px;
+    padding-left:44px;
+    padding-right:11px;
+}
+
+.leftNav .ntitle .n2{
+    float:right;
+    padding-right:17px;
+    line-height:62px;
+}
+
+.leftNav a{
+
+    color:#fff;
+    text-decoration:none;
+}
+.leftNav #a1 ul.nav li a {
+    font-size:16px;
+    line-height:52px;
+    border-radius:0px;
+    padding:0px;
+}
+.leftNav #a1 ul.nav li a:hover{
+    background-color:#1c3d57;
+}
+
+.leftNav #a1 ul.nav li a span{
+   padding-left:39px;
+   padding-right:17px; 
+   font-size:22px;
+   line-height:55px;
+   position: relative;
+   top:8px;
+}
+.main .r_main {
+    width: 85%;
+    float: left;
+    padding:15px 10px;
+}
+.main .r_main .one{
+    background-color:#edeef3;
+}
+
+body{
+    min-width:1200px;
+}
+
+.header{
+
+}
+.form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+.form-inline .control-label {
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+.modal.in .modal-dialog{
+    min-width:900px;
+}
+.header .next .nav >li>a.on {
+    color: #ff4902;
+}

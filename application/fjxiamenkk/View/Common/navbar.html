@@ -1,0 +1,37 @@
+<style>
+.gx {
+    border: 1px #00a2ca solid !important;
+    color: #00a2ca !important;
+    padding: 5px 30px !important;
+    margin: 8px 10px;
+}
+.gx:hover{
+    background: #33b5d4  !important;
+    color: #fff !important;
+}
+</style>
+        <div class="next">
+            <div class="logo">
+              管理员后台
+            </div>
+           
+        </div>
+<script>
+
+function update_auto(){
+
+    $.get("__MODULE__/Sync/Rhost_auto",function(data){
+        alert("更新成功");
+        window.location.reload();
+    });
+}
+
+function update_auto1(){
+
+    $.get("__MODULE__/Sync/Sconfig_auto",function(data){
+        alert("更新成功");
+        window.location.reload();
+    });
+}
+
+</script>

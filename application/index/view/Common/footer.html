@@ -1,0 +1,42 @@
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="<php>echo __ROOT__</php>/common/bootstrap/js/bootstrap.js"></script>
+    <script>
+    $(document).ready(function(){
+
+    H_w();
+
+});
+
+$(window).resize(H_w);
+
+function H_w(){
+  var i_height = $(window).height();  
+
+  if(i_height<=600){
+    $(".leftNav").height(i_height-109);
+    $(".t110").height(i_height-145);
+  }else{
+    $(".t110").height(i_height-145);
+    $(".leftNav").height(i_height-109);
+  }
+}
+function getCookie(name)
+{
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+    if(arr=document.cookie.match(reg))
+    return unescape(arr[2]);
+    else
+    return null;
+}
+
+var area = getCookie("area");
+
+if(area){
+    $(".l"+area).addClass("on");
+}else{
+    $(".l14").addClass("on");
+}
+    </script>
+

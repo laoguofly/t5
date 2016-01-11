@@ -1,0 +1,45 @@
+<style>
+
+
+</style>
+        <div class="next">
+            <div class="n1">
+               
+            </div>
+            <ul class="nav navbar-nav">
+                
+               <volist name="nav" id="d">
+               <li ><a href="<php>echo __APP__</php>?area={$d['id']}" class="l{$d['id']}" style="cursor:pointer;"  >
+                         <span class="glyphicon glyphicon-blackboard"  aria-hidden="true"></span>
+                         {$d['name']} 
+                     </a></li>
+                </volist> 
+                
+             </ul>
+             <span class="n3"> </span>
+        </div>
+
+<script>
+
+
+var data = [];
+//设置 点击时间
+function time_click(time,name){
+
+       var d=new Date();
+       var t=d.getTime();
+       time = time*1000;
+    if(!data[name]){
+        data[name] = t;
+        return 1;
+    }else if((data[name]+time)<=t){
+        data[name] = t;
+        return 1;
+    }
+        return 0;
+
+    //alert(data[name]);
+}
+
+</script>
+

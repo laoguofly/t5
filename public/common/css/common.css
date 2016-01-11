@@ -1,0 +1,82 @@
+.topbar{
+    height:30px;
+    background:#333;
+}
+.header{
+    border-bottom:1px solid #ddd;
+    height:53px;
+}
+.header .next{
+    margin:auto;
+    width:98%;
+}
+.header .next .logo{
+    font-size:26px;
+    line-height:51px;
+    font-weight:bold;
+    float:left;
+}
+.header .next .nav{
+    padding-left:100px;
+}
+
+.header .next .nav .active a{
+    border-bottom: solid 3px #ff4902;
+    color: #ff4902;
+}
+.header .next .nav >li>a:hover{
+    color: #ff4902;
+}
+.header .next .nav >li>a{
+    font-size: 14px;
+    color: #333;
+}
+.main .leftNav{
+    width:15%;
+    border-right:1px solid #ddd;
+    float:left;
+}
+.main .r_main{
+    width:85%;
+    float:right;
+}
+.main .r_main .t1{
+    cursor:pointer;
+}
+.status{
+    color:red;
+
+}
+.hide{
+    display:none;
+}
+.topbar .in-right{
+
+    padding-right:130px;
+}
+.topbar .in-right > ul {
+    float:right;
+}
+.topbar .in-right > ul > li > a{
+    border-left: solid 1px #464444;
+    border-right: solid 1px #464444;
+    padding:0px 5px;
+    color: #fff;
+    line-height:30px;
+    display:block;
+    text-decoration:none;
+
+    
+}
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+
+ .topbar  .dropdown-menu {
+      margin: 0;
+}
+.topbar .in-right >ul> li:hover .dropdown-menu {
+     display: block;
+}
+ html, body { font-family: "Microsoft YaHei" ; } 

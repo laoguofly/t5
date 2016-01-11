@@ -1,0 +1,45 @@
+.header>.n{
+    margin:auto;
+    width:1024px;
+    height:50px;
+}
+.header{
+        border-bottom: solid 1px #dddddd;
+}
+.header .logo {
+    float: left;
+    font-family: 微软雅黑;
+    font-size: 26px;
+    font-weight: 700;
+    line-height:50px;
+}
+.logon{
+    width:320px;
+    float:right;
+    //border: solid 1px #ddd;
+    margin-top:40px;
+    margin-right:55px;
+    border-radius: 4px;
+   // -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    //box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.logon .h{
+
+    margin:30px 15px 0px 15px;
+    padding-bottom:5px;
+
+    font-size:12px;
+    border-bottom: solid 1px #efefef;
+    color: #aaa;
+}
+.logon .b{
+    padding:10px 15px;
+}
+.logon .f{
+    padding:0px 15px;
+    margin-bottom:20px;
+}
+.logon .b .input-group {
+
+    padding:10px 0px;
+}

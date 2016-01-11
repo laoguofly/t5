@@ -47,7 +47,8 @@ class Iadmin extends Controller {
     //显示用户添加
     public function Add_show(){
             $user = $this->execute();    
-            $this->display();
+
+            return $this->fetch();
     }
     
     //master 会员添加
@@ -56,31 +57,24 @@ class Iadmin extends Controller {
         $data = I("param.");
         //echo 111;
         $data1 = $user->Add($data);
-        if($data1 == "用户名重复"){
-            $this->error("用户名重复");
-        }else if($data1){
-            $this->success("添加成功"); 
-        }else{
-            $this->error("添加失败");
-        }
+
+        return header("Location:".__APP__."/fjxiamenkk/Iadmin/I_list"); 
     }
 
     //显示用户
     public function I_list(){
         $user = $this->execute();    
-        $data = $user->show();
+        $data = $user->all_select();
         $this->assign("data",$data);
         //print_r($data);
-        $this->display();
+        return $this->fetch();
 
     }
     //删除用户
     public function delete(){
         $user = $this->execute();    
         $id = I("param.id");
-        $sql ="id=$id";
-
-        if($user->delete($sql)){
+        if($user->delete($id)){
             echo "1";           
         }
 
@@ -89,18 +83,17 @@ class Iadmin extends Controller {
     public function update(){
         $user = $this->execute();    
         $data =I("param.");
-        if($user->update($data['id'],$data)){
+        if($user->update($data)){
            echo 1; 
         }
     }
 
     //显示单个 
     public function select(){
-
         $user = $this->execute();    
         $id = I("param.id");
         $sql ="id = $id";
-        $data  = $user->show($sql);
+        $data  = $user->select($sql);
         $data  = json_encode($data);
         echo $data;
     }
@@ -113,12 +106,12 @@ class Iadmin extends Controller {
         $user = new \User\Admin();    
 
         if(!$user->is_login()){
-            $this->error("请先登录",__MODULE__."/Imaster");
-            return false;
+           return header("Location:".__APP__."/fjxiamenkk/Iuser"); 
+           return false;
         }
 
-        $name = $user->name();
-        $this->assign("name",$name);
+        $status = $user->status();
+        $this->assign("name",$status['name']);
         return $user;
 
     }

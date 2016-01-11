@@ -1,5 +1,5 @@
 <?php
-namespace Admin\Controller;
+namespace fjxiamenkk\Controller;
 
 use Think\Controller;
 
@@ -8,7 +8,7 @@ Vendor('User.User');
 //ICF 防火墙
 Vendor('ICF.ICF');
 
-class IcfController extends Controller {
+class Icf extends Controller {
 
     public function index(){
 
@@ -16,38 +16,27 @@ class IcfController extends Controller {
             $data = $ICF->select(); 
 
             $this->assign("data",$data);
-            $this->display();
+            return $this->fetch();
     }
 
     //后台监控连接状态
     public function line_show(){
 
         $ICF = $this->execute();    
-        $data = $ICF->select();
-        $num=0;
-
-        foreach($data as $value){
-
-            //echo $value['id'];
-            $data1[$num]['ICF'] = new \ICF\K_ICF($value); 
-            $data1[$num]['value'] = $value; 
-            $num++;
-        }
-        
-        //print_r($All_ICF);
+        $data1 = $ICF->all_np();
         $num1=0;
         foreach($data1 as $value){
-            $np = $value['ICF']->np();
-            $login = $np ->S_login();
 
+            $login = $value->S_login();
             $data2[$num1]['ICF'] = $login->select();
-            $data2[$num1]['value'] =  $value['value'];
+            $data2[$num1]['value'] =  $value->user['name'];
+            $data2[$num1]['id'] =  $value->user['id'];
             $num1++;
         }
         //print_r($data2);
         $this->assign("data",$data2);
 
-        $this->display();
+        return $this->fetch();
         
     }
     //删除
@@ -56,8 +45,8 @@ class IcfController extends Controller {
         $id = I("param.id");
         $ICF = $this->execute();    
         $data['id'] = $id;
-        $ICF = new \ICF\K_ICF($data); 
-        $np = $ICF->np();
+        $ICF = new \ICF\K_ICF(); 
+        $np = $ICF->np($data);
         $login = $np ->S_login();
         $data1 = $login->delete();
         echo 1;
@@ -69,9 +58,9 @@ class IcfController extends Controller {
         //echo $id;
         $ICF = $this->execute();    
         $data['id'] = $id;
-        $ICF = new \ICF\K_ICF($data); 
+        $ICF = new \ICF\K_ICF(); 
 
-        $np = $ICF->np();
+        $np = $ICF->np($data);
         //print_r($np);
         $login = $np ->S_login();
         $data1 = $login->update();
@@ -79,26 +68,11 @@ class IcfController extends Controller {
 
     }
 
-    //cs
-    public function cs(){
-        $id = I("param.id");
-        $ICF = $this->execute();    
-        $scope = $ICF->ip_scope();
-        $data['id'] = $id;
-        $ICF = new \ICF\K_ICF($data);
-        $scope->ip_scope_auto($ICF);
-
-    }
-
-
-
-
-
 
     //显示用户添加
     public function Add_show(){
             $ICF = $this->execute();    
-            $this->display();
+            return $this->fetch();
     }
     
     //管理系统用户添加
@@ -106,11 +80,9 @@ class IcfController extends Controller {
         $ICF = $this->execute();    
         $data = I("param.");
         $data1 = $ICF->add($data);
-        if($data1){
-            $this->success("添加成功");
-        }else{
-            $this->error("添加失败");
-        }
+
+        header("Location:".__APP__."/fjxiamenkk/ICF");
+        
         //$data1 = $user->Add($data);
     }
 
@@ -148,20 +120,17 @@ class IcfController extends Controller {
     }
 
 
-    public function execute($data){
+     public function execute($data){
 
-       $user = new \MUser();  
+       $user = new \User\Admin();  
         if(!$user->is_login()){
-            $this->error("请先登录",__MODULE__."/Imaster");
+            header("Location:".__APP__."/fjxiamenkk/Iadmin");
             return false;
         }
-
-        $name = $user->name();
-
-        $this->assign("name",$name);
         
-        
-       return new \ICF\K_ICF();
+        $data = $user->status();
+        $this->assign("name",$data['name']);
+        return $ICF = new \ICF\K_ICF();
 
     }
 

@@ -18,16 +18,47 @@ class Iuser extends Controller {
         return $this->fetch();
     }
 
-    public function update(){
-        $user = $this->execute();
-        $post =I("param.");
+  
 
-        $data = $user->update($post);
-        echo $data;
+    public function select(){
+        $this->execute();
+        $user = new \User\User();  
+        $id =I("param.id");
+        $data = $user->select($id);
+        return json_encode($data);
 
     }
 
-  
+    public function update(){
+        $this->execute();
+        $user = new \User\User();
+        $data = I("param.");
+        $data = $user->update($data);
+        echo 1;
+    }
+
+    //显示
+    public function add_show(){
+        $this->execute();
+        $user = new \User\User();
+        return $this->fetch();   
+    }
+
+    public function add(){
+        $this->execute();
+        $user = new \User\User();
+        $data = I("param.");
+        $user->add($data);
+        return header("Location:".__APP__."/fjxiamenkk/Iuser");
+    }
+
+    public function delete(){
+        $this->execute();
+        $user = new \User\User();
+        $id = I("param.id");
+        $data = $user->delete($id);
+        echo $data;
+    }
 
   
 
@@ -35,7 +66,7 @@ class Iuser extends Controller {
 
        $user = new \User\Admin();  
         if(!$user->is_login()){
-            header("Location:".__APP__."/Iadmin/");
+            header("Location:".__APP__."/fjxiamenkk/Iadmin");
             return false;
         }
         

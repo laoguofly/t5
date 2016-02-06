@@ -14,6 +14,11 @@
                          {$d['name']} 
                      </a></li>
                 </volist> 
+
+                <li><a class="gx" onclick="update_auto1()" style="cursor:pointer;">
+                     用户策略同步
+                     <span class="glyphicon glyphicon-refresh " aria-hidden="true"></span>
+                 </a></li>
                 
              </ul>
              <span class="n3"> </span>
@@ -41,5 +46,13 @@ function time_click(time,name){
     //alert(data[name]);
 }
 
+//用户更新
+function update_auto1(){
+    $.get("<php>echo __HOME__;</php>/sync/auto",function(data){
+            if(data){
+                alert("更新成功，请勿多次点击。"); 
+            }
+    });
+}
 </script>
 

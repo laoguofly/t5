@@ -14,7 +14,7 @@ class Icf extends Controller {
 
             $ICF = $this->execute();    
             $data = $ICF->select(); 
-
+            //print_r($data);
             $this->assign("data",$data);
             return $this->fetch();
     }

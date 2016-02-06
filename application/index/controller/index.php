@@ -9,6 +9,9 @@ Vendor('User.User');
 //图片类
 Vendor('Rimg.Rimg');
 
+//调用防火墙类 
+Vendor('ICF.ICF');
+
 
 class Index extends Controller 
 {
@@ -27,6 +30,8 @@ class Index extends Controller
        // print_r($data1);
         $this->assign("data1",$data1);
 
+        $this->assign("ip","off");
+
         return $this->fetch();
     }
 
@@ -40,6 +45,30 @@ class Index extends Controller
         echo ($data1);
 
         
+    }
+    public function ip_select(){
+
+        $user = $this->execute();
+        $data['ip']   = I("param.ip");
+        $ICF          = new \ICF\K_User_ICF();
+        $data['ip']   = trim($data['ip']);
+        //获取ip所在地区
+        $area_data    =$ICF->is_area($data['ip']);
+        //print_r($area_data);
+        $host = $user->call_host();
+        $area = $user->call_area();
+
+        //设置默认地区
+        $area->set_area($area_data['icf_id']);
+        $data1 = $host->area_select($data);
+        //print_r($data1);
+        
+        $this->assign("data1",$data1);
+        //echo $data['ip'];
+        $this->assign("ip",$data['ip']);
+
+        return $this->fetch('index');
+
     }
 
     public function execute()

@@ -104,17 +104,17 @@ body{
     color:#fff;
     text-decoration:none;
 }
-.leftNav #a1 ul.nav li a {
+.leftNav  ul.nav li a {
     font-size:16px;
     line-height:52px;
     border-radius:0px;
     padding:0px;
 }
-.leftNav #a1 ul.nav li a:hover{
+.leftNav  ul.nav li a:hover{
     background-color:#1c3d57;
 }
 
-.leftNav #a1 ul.nav li a span{
+.leftNav  ul.nav li a span{
    padding-left:39px;
    padding-right:17px; 
    font-size:22px;
@@ -128,7 +128,7 @@ body{
     padding:15px 10px;
 }
 .main .r_main .one{
-    background-color:#edeef3;
+    background-color:#d9edf7;
 }
 
 body{

@@ -115,6 +115,7 @@ class Icf extends Controller {
         $id = I("param.id");
         //show的接口不一致
         $data  = $ICF->on_select($id);
+        //print_r($data);
         $data  = json_encode($data);
         echo $data;
     }

@@ -46,6 +46,21 @@ class Index extends Controller
 
         
     }
+
+    //ip详情分析 
+    public function S_details(){
+
+        $ip   = I("param.ip");
+        $user = $this->execute();
+        $host = $user->call_host(); 
+
+        //详情分析
+        $data = $host->logs_report($ip);
+
+        echo json_encode($data);
+
+    } 
+
     public function ip_select(){
 
         $user = $this->execute();

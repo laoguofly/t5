@@ -27,7 +27,18 @@ class Index extends Controller
         //设置默认地区
         $area->set_area($data['area']);
         $data1 = $host->area_select($data);
-       // print_r($data1);
+        // 是16的时候不显示某些值;
+        if($data['area']==16 and $data['ip']==""){
+            foreach($data1['data'] as $key=>$value){
+
+                if(preg_match ("/103\.37\.47/", $value['address'])){
+                   // echo 111;
+                    unset($data1['data'][$key]);
+                } 
+            }
+        }
+        //end
+        
         $this->assign("data1",$data1);
 
         $this->assign("ip","off");
